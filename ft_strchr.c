@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkugan <mkugan@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/12 15:21:37 by mkugan            #+#    #+#             */
+/*   Updated: 2025/05/12 15:21:37 by mkugan           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+/*
+ * Parameters
+ * 	s: pointer to the null-terminated byte string to be analyzed
+ * 	c: character to search for
+ *
+ * Return value
+ * 	Pointer to the found character in 's', or null pointer
+ * 	if no such character is found.
+ *
+ * Description
+ * 	Finds the first occurrence of 'c' (after conversion to char
+ * 	as if by (char)c) in the null-terminated byte string pointed
+ * 	to by 's' (each character interpreted as unsigned char).
+ * 	The terminating null character is considered to be a part
+ * 	of the string and can be found when searching for '\0'.
+ *
+ * Undefined behavior
+ * 	The behavior is undefined if 's' is not a pointer to
+ * 	a null-terminated byte string.
+ */
+
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s)
+	{
+		if ((unsigned char)*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((unsigned char)*s == (char)c)
+		return ((char *)s);
+	return (NULL);
+}
