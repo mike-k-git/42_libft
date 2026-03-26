@@ -26,7 +26,7 @@ static int	ft_size_n_ultoa_base(unsigned long n, int len_base)
 	return (len);
 }
 
-char	*ft_utoa_base(unsigned long n, char *base)
+char	*ft_ultoa_base(unsigned long n, char *base)
 {
 	char	*num;
 	int		len;
