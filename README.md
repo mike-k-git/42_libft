@@ -15,7 +15,7 @@ This project recreates common libc functions and introduces basic data structure
 #### String and Memory
 - ft_strlen, ft_strdup, ft_strjoin, ft_strtrim, ft_substr
 - ft_memset, ft_memcpy, ft_memmove, ft_memcmp, ft_memchr
-- ft_split, ft_strnstr, ft_strlcpy, ft_strlcat
+- ft_split, ft_strnstr, ft_strlcpy, ft_strlcat, ft_strtolower
 
 #### Character checks and Conversion
 - ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint
