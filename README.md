@@ -23,7 +23,7 @@ This project recreates common libc functions and introduces basic data structure
 - ft_atoi, ft_itoa, ft_ultoa_base
 
 #### Output functions
-- ft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd
+- ft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd, ft_putnchar_fd
 
 #### Memory allocation
 - ft_calloc, ft_bzero
