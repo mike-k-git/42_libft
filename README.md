@@ -20,7 +20,7 @@ This project recreates common libc functions and introduces basic data structure
 #### Character checks and Conversion
 - ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint
 - ft_tolower, ft_toupper
-- ft_atoi, ft_itoa
+- ft_atoi, ft_itoa, ft_ultoa_base
 
 #### Output functions
 - ft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd
