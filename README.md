@@ -26,7 +26,7 @@ This project recreates common libc functions and introduces basic data structure
 - ft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd, ft_putnchar_fd
 
 #### Memory allocation
-- ft_calloc, ft_bzero
+- ft_calloc, ft_bzero, ft_free_array
 
 #### Linked list (bonus)
 - ft_lstnew, ft_lstadd_front, ft_lstadd_back
