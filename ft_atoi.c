@@ -15,34 +15,6 @@
 
 /*
  * Parameters
- * 	c: character to classify
- *
- * Return value
- * 	Non-zero value if the character is a whitespace character, zero otherwise.
- *
- * Description
- * 	Checks if the given character is either
- * 		Space (0x20, ' '),
- * 		Form feed (0x0c, '\f'),
- * 		Line feed (0x0a, '\n'),
- * 		Carriage return (0x0d, '\r'),
- * 		Horizontal tab (0x09, '\t'),
- * 		Vertical tab (0x0b, '\v'), 
- *
- * Undefined behavior
- * 	The behavior is undefined if the value of 'c' is not representable as
- * 	unsigned char and is not equal to 'EOF'.
- */
-
-static int	ft_isspace(int c)
-{
-	if ((c >= 9 && c <= 13) || c == ' ')
-		return (8);
-	return (0);
-}
-
-/*
- * Parameters
  * 	nptr: pointer to the null-terminated byte string to be interpreted
  *
  * Return value

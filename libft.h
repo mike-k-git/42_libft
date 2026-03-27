@@ -22,6 +22,7 @@ typedef struct s_list
 }		t_list;
 
 int		ft_atoi(const char *nptr);
+long	ft_atol(char *n, char **end, size_t base);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_free_array(char **arr, int size);
@@ -30,6 +31,7 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
 char	*ft_itoa(int n);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);

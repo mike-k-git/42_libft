@@ -10,6 +10,7 @@ RESET      = \033[0m
 NAME = libft.a
 
 SRC = ft_atoi.c        \
+	  ft_atol.c        \
 	  ft_bzero.c       \
 	  ft_calloc.c      \
 	  ft_free_array.c  \
@@ -18,6 +19,7 @@ SRC = ft_atoi.c        \
 	  ft_isascii.c     \
 	  ft_isdigit.c     \
 	  ft_isprint.c     \
+	  ft_isspace.c     \
 	  ft_itoa.c        \
 	  ft_memchr.c      \
 	  ft_memcmp.c      \

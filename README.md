@@ -18,9 +18,9 @@ This project recreates common libc functions and introduces basic data structure
 - ft_split, ft_strnstr, ft_strlcpy, ft_strlcat, ft_strtolower
 
 #### Character checks and Conversion
-- ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint
+- ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint, ft_isspace
 - ft_tolower, ft_toupper
-- ft_atoi, ft_itoa, ft_ultoa_base
+- ft_atoi, ft_itoa, ft_ultoa_base, ft_atol
 
 #### Output functions
 - ft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd, ft_putnchar_fd
