@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stddef.h>
 
 /* Parameters
  *	content: The content to store in the new node.

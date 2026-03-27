@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
 /* Parameters
  *	lst: The address of a pointer to a node.
