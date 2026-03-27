@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static size_t	ft_wc(char const *s, char c)
+static int	ft_wc(char const *s, char c)
 {
-	size_t	wc;
+	int	wc;
 
 	wc = 0;
 	while (*s)
@@ -71,15 +71,17 @@ static	size_t	ft_elalloc(char **arr, size_t i, const char *s, char c)
  * 	Function assumes that 's' is NUL-terminated C string.
  */
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c, int* size)
 {
 	char	**arr;
 	size_t	i;
+	int		wc;
 
 	if (!s)
 		return (NULL);
 	i = 0;
-	arr = (char **)malloc(sizeof(char *) * (ft_wc(s, c) + 1));
+	wc = ft_wc(s, c);
+	arr = (char **)malloc(sizeof(char *) * (wc + 1));
 	if (!arr)
 		return (NULL);
 	while (*s)
@@ -94,6 +96,8 @@ char	**ft_split(char const *s, char c)
 			i++;
 		}
 	}
+	if (size)
+		*size = wc;
 	arr[i] = NULL;
 	return (arr);
 }
