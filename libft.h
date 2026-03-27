@@ -68,5 +68,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_ultoa_base(unsigned long n, char *base);
+int		ft_swap(void *a, void *b, size_t size);
 
 #endif

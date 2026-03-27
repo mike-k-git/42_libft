@@ -56,7 +56,8 @@ SRC_BONUS = ft_lstadd_back.c  \
 			ft_lstlast.c      \
 			ft_lstmap.c       \
 			ft_lstnew.c       \
-			ft_lstsize.c
+			ft_lstsize.c      \
+			ft_swap.c
 
 OBJ_DIR = obj
 
