@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 static int ft_get_digit(int c, size_t base) {
   const char *digits;
@@ -29,12 +30,21 @@ static int ft_get_digit(int c, size_t base) {
 long ft_atol(char *n, char **end, size_t base) {
   long integer;
   long current;
+  int negative;
 
   current = -1;
   if (!n || base < 2 || base > 16)
     return (0);
   integer = 0;
+  negative = 0;
   while (*n && ft_isspace(*n)) {
+    n++;
+    if (end)
+      (*end)++;
+  }
+  if (*n && (*n == '-' || *n == '+')) {
+    if (*n == '-')
+      negative = 1;
     n++;
     if (end)
       (*end)++;
@@ -51,6 +61,12 @@ long ft_atol(char *n, char **end, size_t base) {
     if (current == -1)
       break;
     integer = integer * base + current;
+    if (integer <= 0 && negative)
+      return (LONG_MIN);
+    if (integer <= 0 && !negative)
+      return (LONG_MAX);
   }
+  if (negative)
+    integer = -integer;
   return (integer);
 }
