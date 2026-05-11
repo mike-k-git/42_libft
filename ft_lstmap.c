@@ -35,25 +35,25 @@
  *	delete the content of a node if needed
  */
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-{
-	t_list	*new;
-	t_list	*node;
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *)) {
+  t_list *new;
+  t_list *node;
+  void *content;
 
-	new = NULL;
-	while (lst)
-	{
-		node = ft_lstnew(f(lst->content));
-		if (!node)
-		{
-			ft_lstclear(&new, del);
-			return (new);
-		}
-		if (!new)
-			new = node;
-		else
-			ft_lstadd_back(&new, node);
-		lst = lst->next;
-	}
-	return (new);
+  new = NULL;
+  while (lst) {
+    content = f(lst->content);
+    node = ft_lstnew(content);
+    if (!node) {
+      del(content);
+      ft_lstclear(&new, del);
+      return (new);
+    }
+    if (!new)
+      new = node;
+    else
+      ft_lstadd_back(&new, node);
+    lst = lst->next;
+  }
+  return (new);
 }

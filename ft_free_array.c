@@ -12,10 +12,9 @@
 
 #include <stdlib.h>
 
-void	ft_free_array(char **arr, int size)
-{
-	while (size)
-		free(arr[size--]);
-	free(arr);
-	return ;
+void ft_free_array(char **arr, int size) {
+  while (size--)
+    free(arr[size]);
+  free(arr);
+  return;
 }
