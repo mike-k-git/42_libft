@@ -8,6 +8,7 @@ YELLOW     = \033[33m
 RESET      = \033[0m
 
 NAME = libft.a
+NAME_SAN = libft_san.a
 
 SRC = ft_atoi.c        \
 	  ft_atol.c        \
@@ -48,9 +49,8 @@ SRC = ft_atoi.c        \
 	  ft_substr.c      \
 	  ft_tolower.c     \
 	  ft_toupper.c     \
-	  ft_ultoa_base.c
-
-SRC_BONUS = ft_lstadd_back.c  \
+	  ft_ultoa_base.c  \
+		ft_lstadd_back.c  \
 			ft_lstadd_front.c \
 			ft_lstclear.c     \
 			ft_lstdelone.c    \
@@ -62,25 +62,19 @@ SRC_BONUS = ft_lstadd_back.c  \
 			ft_swap.c
 
 OBJ_DIR = obj
+OBJ_SAN_DIR = obj_san
 
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 DEP = $(OBJ:.o=.d)
 
-OBJ_BONUS = $(SRC_BONUS:%.c=${OBJ_DIR}/%.o)
-DEP_BONUS = $(OBJ_BONUS:.o=.d)
+OBJ_SAN = $(SRC:%.c=${OBJ_SAN_DIR}/%_san.o)
+DEP_SAN = $(OBJ_SAN:.o=.d)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "Creating library $(BLUE_BOLD)$@$(RESET)"
 	@ar rcs $@ $^
-
-bonus: .bonus
-
-.bonus: $(NAME) $(OBJ_BONUS)
-	@echo "Adding $(GREEN_BOLD)bonus$(RESET) to library"
-	@ar rs $< $(OBJ_BONUS)
-	@touch .bonus
 
 ${OBJ_DIR}/%.o: %.c
 	@mkdir -p $(dir $@)
@@ -89,16 +83,31 @@ ${OBJ_DIR}/%.o: %.c
 
 clean:
 	@echo "$(YELLOW)Cleaning object files$(RESET)"
-	@rm -f $(OBJ) $(OBJ_BONUS) .bonus
-	@rm -rf $(OBJ_DIR)
+	@rm -f $(OBJ) $(OBJ_SAN)
+	@rm -rf $(OBJ_DIR) $(OBJ_SAN_DIR)
 
 fclean: clean
 	@echo "$(YELLOW)Removing the library$(RESET)"
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_SAN)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+SAN = -fsanitize=address,undefined -fno-sanitize-recover=all -g -fno-omit-frame-pointer
+
+$(NAME_SAN): $(OBJ_SAN)
+	@echo "Creating library $(BLUE_BOLD)$@$(RESET)"
+	@ar rcs $@ $^
+
+${OBJ_SAN_DIR}/%_san.o: %.c
+	@mkdir -p $(dir $@)
+	@echo "Compiling $(CYAN_BOLD)$<$(RESET)"
+	@$(CC) -c $(SAN) $(CFLAGS) $< -o $@
+
+test: $(NAME_SAN)
+	@$(CC) $(SAN) $(CFLAGS) tests/test_atoi.c $(NAME_SAN) -I. -Itests -o tests/runner
+	./tests/runner
+
+.PHONY: all clean fclean re test
 
 -include $(DEP)
--include $(DEP_BONUS)
+-include $(DEP_SAN)
