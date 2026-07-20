@@ -1,3 +1,4 @@
 tests/runner
 tests/.d 
 obj/
+libft.a
