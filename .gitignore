@@ -1,4 +1,7 @@
 tests/runner
 tests/.d 
 obj/
+obj_san/
 libft.a
+libft_san.a
+.DS_Store
