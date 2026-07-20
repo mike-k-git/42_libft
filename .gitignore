@@ -1,5 +1,6 @@
 tests/runner
-tests/.d 
+tests/runner.dSYM
+tests/*.d
 obj/
 obj_san/
 libft.a
